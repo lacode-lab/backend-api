@@ -15,4 +15,9 @@ class HelloController {
     fun health(): Map<String, String> {
         return mapOf("status" to "UP")
     }
+
+    @GetMapping("/aaa")
+    fun aaa(): Map<String, String> {
+        return mapOf("status" to "UP")
+    }
 }
