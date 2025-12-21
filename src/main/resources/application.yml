@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: backend-api
+  datasource:
+    url: jdbc:postgresql://localhost:5433/household_budget
+    username: budget_user
+    password: budget_password
+management:
+  endpoints:
+    access:
+      default: none
+    web:
+      exposure:
+        include: health
+      base-path: /
+  endpoint:
+    health:
+      show-details: always
+      access: read_only
+  metrics:
+    enable:
+      all: false
+      jvm: true
+      http: true
