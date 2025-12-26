@@ -3,7 +3,13 @@
     "allow": [
       "Bash(tree:*)",
       "Bash(cat:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(./gradlew build:*)",
+      "Bash(gradle --version:*)",
+      "Bash(source:*)",
+      "Bash(sdk current:*)",
+      "Bash(curl:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }
