@@ -6,19 +6,21 @@ spring:
     username: budget_user
     password: budget_password
 management:
+  info:
+    git:
+      mode: full
   endpoints:
-    access:
-      default: none
     web:
       exposure:
-        include: health
-      base-path: /
+        include: "*"
+      base-path: /actuator
   endpoint:
-    health:
-      show-details: always
-      access: read_only
+    shutdown:
+      access: unrestricted
   metrics:
     enable:
-      all: false
       jvm: true
+      process: true
+      system: true
       http: true
+      logback: true

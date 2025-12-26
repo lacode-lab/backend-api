@@ -3,16 +3,23 @@ plugins {
     kotlin("plugin.spring") version "1.9.25"
     id("org.springframework.boot") version "3.5.5"
     id("io.spring.dependency-management") version "1.1.7"
+    id("com.gorylenko.gradle-git-properties") version "2.5.4"
 }
 
 group = "com.kurage.lab"
 version = "0.0.1-SNAPSHOT"
+// リリースの度にversionを上げるか、CIで自動付与するパターンが多い
+//version = System.getenv("GIT_TAG") ?: "0.0.1-SNAPSHOT"
 description = "backend-api"
 
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
+}
+
+springBoot {
+    buildInfo()
 }
 
 configurations {
@@ -44,6 +51,13 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
+}
+gitProperties {
+    keys = listOf(
+        "git.branch",
+        "git.tags",
+        "git.dirty"
+    )
 }
 
 tasks.withType<Test> {
