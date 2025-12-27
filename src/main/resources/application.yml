@@ -2,9 +2,9 @@ spring:
   application:
     name: backend-api
   datasource:
-    url: jdbc:postgresql://localhost:5433/household_budget
-    username: budget_user
-    password: budget_password
+    url: jdbc:postgresql://localhost:7543/backend_api_db
+    username: api_user
+    password: api_password
 management:
   info:
     git:

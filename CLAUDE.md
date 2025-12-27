@@ -12,10 +12,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./gradlew clean build    # Clean and rebuild
 ```
 
-### Docker
+### Docker (PostgreSQL)
 ```bash
-docker build -t backend-api .
-docker run -p 8080:8080 backend-api
+docker-compose up -d      # Start PostgreSQL
+docker-compose down       # Stop PostgreSQL
+docker-compose down -v    # Stop and remove data
 ```
 
 ## Architecture
@@ -34,6 +35,7 @@ Spring Boot 3.5.5 Kotlin REST API using Gradle with Kotlin DSL.
 
 - Kotlin 1.9.25 / Java 17
 - Spring Boot 3.5.5 with DevTools
+- PostgreSQL 15.3 (Docker)
 - JUnit 5 for testing
 - Jackson for JSON serialization
 
