@@ -12,11 +12,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./gradlew clean build    # Clean and rebuild
 ```
 
-### Docker (PostgreSQL)
+### Docker
 ```bash
-docker-compose up -d      # Start PostgreSQL
-docker-compose down       # Stop PostgreSQL
-docker-compose down -v    # Stop and remove data
+# Application (PostgreSQL)
+docker-compose up -d
+docker-compose down -v
+
+# Monitoring (Prometheus + Grafana)
+docker-compose -f docker-compose.monitoring.yml up -d
+docker-compose -f docker-compose.monitoring.yml down -v
 ```
 
 ## Architecture
@@ -25,19 +29,28 @@ Spring Boot 3.5.5 Kotlin REST API using Gradle with Kotlin DSL.
 
 **Package structure**: `com.kurage.lab.backendapi`
 - `controller/` - REST controllers
+- `model/` - Data classes
+- `repository/` - Database access
+- `config/` - Configuration classes
 - Entry point: `BackendApiApplication.kt`
-
-**Current endpoints**:
-- `GET /hello` - Hello message
-- `GET /health` - Health check (returns JSON status)
 
 ## Tech Stack
 
 - Kotlin 1.9.25 / Java 17
 - Spring Boot 3.5.5 with DevTools
 - PostgreSQL 15.3 (Docker)
+- Prometheus + Grafana (Docker) - Metrics monitoring
+- Swagger/OpenAPI - API documentation
 - JUnit 5 for testing
 - Jackson for JSON serialization
+
+## URLs
+
+- App: http://localhost:8080
+- Swagger UI: http://localhost:8080/swagger-ui.html
+- Actuator: http://localhost:8081/actuator
+- Prometheus: http://localhost:9090
+- Grafana: http://localhost:3000 (admin/admin)
 
 ## Conventions
 

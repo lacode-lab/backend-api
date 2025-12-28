@@ -14,7 +14,10 @@
       "Bash(./gradlew bootRun:*)",
       "Bash(./gradlew clean:*)",
       "Bash(./gradlew spotlessCheck:*)",
-      "Bash(./gradlew spotlessApply:*)"
+      "Bash(./gradlew spotlessApply:*)",
+      "Bash(docker ps:*)",
+      "Bash(python3:*)",
+      "Bash(mkdir:*)"
     ]
   }
 }
