@@ -5,14 +5,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class HelloController {
-
     @GetMapping("/hello")
-    fun hello(): String {
-        return "Hello from Spring Boot on ECS!"
-    }
+    fun hello(): String = "Hello from Spring Boot on ECS!"
 
     @GetMapping("/health")
-    fun health(): Map<String, String> {
-        return mapOf("status" to "UP")
-    }
+    fun health(): Map<String, String> = mapOf("status" to "UP")
 }

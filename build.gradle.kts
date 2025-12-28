@@ -4,12 +4,13 @@ plugins {
     id("org.springframework.boot") version "3.5.5"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.gorylenko.gradle-git-properties") version "2.5.4"
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 group = "com.kurage.lab"
 version = "0.0.1-SNAPSHOT"
 // リリースの度にversionを上げるか、CIで自動付与するパターンが多い
-//version = System.getenv("GIT_TAG") ?: "0.0.1-SNAPSHOT"
+// version = System.getenv("GIT_TAG") ?: "0.0.1-SNAPSHOT"
 description = "backend-api"
 
 java {
@@ -55,11 +56,25 @@ kotlin {
     }
 }
 gitProperties {
-    keys = listOf(
-        "git.branch",
-        "git.tags",
-        "git.dirty"
-    )
+    keys =
+        listOf(
+            "git.branch",
+            "git.commit.id",
+            "git.commit.id.abbrev",
+            "git.tags",
+            "git.dirty",
+        )
+}
+
+spotless {
+    kotlin {
+        target("src/**/*.kt")
+        ktlint("1.5.0")
+    }
+    kotlinGradle {
+        target("*.gradle.kts")
+        ktlint("1.5.0")
+    }
 }
 
 tasks.withType<Test> {

@@ -9,7 +9,12 @@
       "Bash(source:*)",
       "Bash(sdk current:*)",
       "Bash(curl:*)",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "Bash(lsof:*)",
+      "Bash(./gradlew bootRun:*)",
+      "Bash(./gradlew clean:*)",
+      "Bash(./gradlew spotlessCheck:*)",
+      "Bash(./gradlew spotlessApply:*)"
     ]
   }
 }
