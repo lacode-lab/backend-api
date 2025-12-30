@@ -15,12 +15,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Docker
 ```bash
 # Application (PostgreSQL)
-docker-compose up -d
-docker-compose down -v
+docker compose up -d
+docker compose down -v
 
 # Monitoring (Prometheus + Grafana)
-docker-compose -f docker-compose.monitoring.yml up -d
-docker-compose -f docker-compose.monitoring.yml down -v
+docker compose -f docker-compose.monitoring.yml up -d
+docker compose -f docker-compose.monitoring.yml down -v
 ```
 
 ## Architecture
@@ -50,7 +50,7 @@ Spring Boot 3.5.5 Kotlin REST API using Gradle with Kotlin DSL.
 - Swagger UI: http://localhost:8080/swagger-ui.html
 - Actuator: http://localhost:8081/actuator
 - Prometheus: http://localhost:9090
-- Grafana: http://localhost:3000 (admin/admin)
+- Grafana: http://localhost:3030 (admin/admin)
 
 ## Conventions
 

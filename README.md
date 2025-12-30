@@ -6,7 +6,7 @@ Spring Boot + Kotlin REST API
 
 ```bash
 # Start Docker services
-docker-compose up -d
+docker compose up -d
 
 # Run application
 ./gradlew bootRun
@@ -20,7 +20,7 @@ docker-compose up -d
 | Swagger UI | http://localhost:8080/swagger-ui.html |
 | Actuator | http://localhost:8081/actuator |
 | Prometheus | http://localhost:9090 |
-| Grafana | http://localhost:3000 (admin/admin) |
+| Grafana | http://localhost:3030 (admin/admin) |
 
 ## API Endpoints
 
@@ -104,13 +104,13 @@ curl "http://localhost:8080/api/load/delay?delayMs=3000"
 ### Application (PostgreSQL)
 
 ```bash
-docker-compose up -d       # Start PostgreSQL
-docker-compose down -v     # Stop and remove data
+docker compose up -d       # Start PostgreSQL
+docker compose down -v     # Stop and remove data
 ```
 
 ### Monitoring (Prometheus + Grafana)
 
 ```bash
-docker-compose -f docker-compose.monitoring.yml up -d    # Start monitoring
-docker-compose -f docker-compose.monitoring.yml down -v  # Stop and remove data
+docker compose -f docker-compose.monitoring.yml up -d    # Start monitoring
+docker compose -f docker-compose.monitoring.yml down -v  # Stop and remove data
 ```

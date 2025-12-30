@@ -63,11 +63,27 @@ gitProperties {
             "git.branch",
             "git.commit.id",
             "git.commit.id.abbrev",
+            "git.commit.time",
+            "git.build.time",
             "git.tags",
             "git.dirty",
         )
+    dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    dateFormatTimeZone = "UTC"
+//    customProperty("git.build.time.epoch", object : groovy.lang.Closure<Long>(this) {
+//        override fun call(vararg args: Any?): Long = System.currentTimeMillis()
+//    })
+//    customProperty("git.commit.time.epoch", object : groovy.lang.Closure<Long>(this) {
+//        override fun call(vararg args: Any?): Long {
+//            val grgit = args.firstOrNull()
+//            return (grgit as? gradlegitproperties.org.ajoberstar.grgit.Grgit)?.head()?.dateTime?.toInstant()?.toEpochMilli() ?: 0L
+//        }
+//    })
 }
 
+tasks.processResources {
+    dependsOn("generateGitProperties", "bootBuildInfo")
+}
 spotless {
     kotlin {
         target("src/**/*.kt")

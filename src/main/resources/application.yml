@@ -25,9 +25,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics, prometheus
+        include: health, info, metrics, prometheus,env,beans,mappings,configprops,loggers
       base-path: /actuator
+      path-mapping:
+        health: healthcheck
   endpoint:
+    env:
+      show-values: always
     health:
       probes:
         enabled: true
